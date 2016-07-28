@@ -21,7 +21,7 @@
     #links_holder a {
       position: absolute;
       z-index: 10;
-      color: #d3d3d3;
+      color: #03B8CD;
       font-family: 'Droid Sans Mono', serif !important;
       font-size: 40px;
       font-weight: bold;
@@ -50,8 +50,8 @@
       calling keenswh in response to Your offer for the position of a game designer.
     </div>
     <div id="links_holder" style="display: none;">
-      <a href="/cv" data-link="cv">Cývíčko</a>
-      <a href="/#" data-link="prtf">Portfolio</a>
+      <a href="/cv" data-link="cv">LINK_CV</a>
+      <a href="http://araalk.wix.com/halamkovaportfolio" data-link="prtf">LINK_PORTFOLIO</a>
     </div>
     <img src="/img/2.png" alt="img2" class="img-responsive" id="img_with_links">
     <div class="text_block">
@@ -75,13 +75,19 @@
     var $img = $('#img_with_links');
 
     function relocate_links () {
-      $holder.find('[data-link=cv]').css('top', $img.height() * 0.75).css('left', $img.width() * 0.16);
-      $holder.find('[data-link=prtf]').css('top', $img.height() * 0.87).css('left', $img.width() * 0.6);
+      $link_cv = $holder.find('[data-link=cv]');
+      $link_cv
+          .css('top', ($img.height() * 0.78) - ($link_cv.height() / 2))
+          .css('left', ($img.width() * 0.26) - ($link_cv.width() / 2));
+      $link_prtf = $holder.find('[data-link=prtf]');
+      $link_prtf
+          .css('top', ($img.height() * 0.91) - ($link_prtf.height() / 2))
+          .css('left', ($img.width() * 0.7) - ($link_prtf.width() / 2));
     }
 
     $img.load(function () {
-      relocate_links();
       $holder.css('display', '');
+      relocate_links();
     });
 
 
